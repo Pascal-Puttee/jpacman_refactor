@@ -11,6 +11,7 @@ import java.util.Properties;
  */
 public class PointCalculatorLoader {
 
+    @SuppressWarnings("rawtypes")
     private static Class clazz = null;
 
     /**
@@ -18,18 +19,20 @@ public class PointCalculatorLoader {
      *
      * @return The (dynamically loaded) points calculator.
      */
+    @SuppressWarnings("unchecked")
     public PointCalculator load() {
         try {
             if (clazz == null) {
                 clazz = loadClassFromFile();
             }
 
-            return (PointCalculator) clazz.newInstance();
+            return (PointCalculator) clazz.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
             throw new RuntimeException("Could not dynamically load the points calculator.", e);
         }
     }
 
+    @SuppressWarnings("rawtypes")
     private Class loadClassFromFile() throws IOException, ClassNotFoundException {
         String strategyToLoad = getCalculatorClassName();
 

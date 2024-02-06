@@ -1,7 +1,6 @@
 package nl.tudelft.jpacman.board;
 
 import nl.tudelft.jpacman.sprite.PacManSprites;
-import nl.tudelft.jpacman.sprite.Sprite;
 
 /**
  * A factory that creates {@link Board} objects from 2-dimensional arrays of
