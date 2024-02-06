@@ -1,15 +1,13 @@
 package nl.tudelft.jpacman.level;
 
 import nl.tudelft.jpacman.board.Board;
-import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.npc.Ghost;
+import nl.tudelft.jpacman.npc.RandomGhost;
 import nl.tudelft.jpacman.npc.ghost.GhostColor;
 import nl.tudelft.jpacman.npc.ghost.GhostFactory;
 import nl.tudelft.jpacman.points.PointCalculator;
 import nl.tudelft.jpacman.sprite.PacManSprites;
-import nl.tudelft.jpacman.sprite.Sprite;
-
 import java.util.*;
 
 /**
@@ -119,53 +117,4 @@ public class LevelFactory {
         return new Pellet(PELLET_VALUE, sprites.getPelletSprite());
     }
 
-    /**
-     * Implementation of an NPC that wanders around randomly.
-     *
-     * @author Jeroen Roosen
-     */
-    private static final class RandomGhost extends Ghost {
-
-        /**
-         * The suggested delay between moves.
-         */
-        private static final long DELAY = 175L;
-
-        /**
-         * Creates a new random ghost.
-         *
-         * @param ghostSprite
-         *            The sprite for the ghost.
-         */
-        RandomGhost(Map<Direction, Sprite> ghostSprite) {
-            super(ghostSprite, (int) DELAY, 0);
-        }
-
-        @Override
-        public Optional<Direction> nextAiMove() {
-            return Optional.empty();
-        }
-
-        /**
-         * Determines a possible move in a random direction.
-         *
-         * @return A direction in which the ghost can move, or <code>null</code> if
-         * the ghost is shut in by inaccessible squares.
-         */
-        @Override
-        protected Direction randomMove() {
-            Square square = getSquare();
-            List<Direction> directions = new ArrayList<>();
-            for (Direction direction : Direction.values()) {
-                if (square.getSquareAt(direction).isAccessibleTo(this)) {
-                    directions.add(direction);
-                }
-            }
-            if (directions.isEmpty()) {
-                return null;
-            }
-            int i = new Random().nextInt(directions.size());
-            return directions.get(i);
-        }
-    }
 }
