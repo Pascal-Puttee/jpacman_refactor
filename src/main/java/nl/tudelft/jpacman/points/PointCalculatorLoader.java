@@ -12,7 +12,7 @@ import java.util.Properties;
 public class PointCalculatorLoader {
 
     @SuppressWarnings("rawtypes")
-    private static Class clazz = null;
+    private Class clazz = null;
 
     /**
      * Load a points calculator and return it.

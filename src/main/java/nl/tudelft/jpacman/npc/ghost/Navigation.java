@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import nl.tudelft.jpacman.board.Board;
+import nl.tudelft.jpacman.board.GameBoard;
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.board.Unit;
@@ -118,7 +118,7 @@ public final class Navigation {
      *
      * @return the first unit found of type clazz, or null.
      */
-    public static <T extends Unit> T findUnitInBoard(Class<T> clazz, Board board) {
+    public static <T extends Unit> T findUnitInBoard(Class<T> clazz, GameBoard board) {
         for (int y = 0; y < board.getHeight(); y++) {
             for (int x = 0; x < board.getWidth(); x++) {
                 final T ghost = Navigation.findUnit(clazz, board.squareAt(x, y));

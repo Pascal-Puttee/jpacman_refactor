@@ -21,7 +21,7 @@ class BoardTest {
         { mock(Square.class), mock(Square.class), mock(Square.class) },
         { mock(Square.class), mock(Square.class), mock(Square.class) },
     };
-    private final Board board = new Board(grid);
+    private final GameBoard board = new GameBoard(grid);
 
     /**
      * Verifies the board has the correct width.

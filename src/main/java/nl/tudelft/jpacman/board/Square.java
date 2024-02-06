@@ -9,7 +9,7 @@ import com.google.common.collect.ImmutableList;
 
 import nl.tudelft.jpacman.sprite.Sprite;
 /**
- * A square on a {@link Board}, which can (or cannot, depending on the type) be
+ * A square on a {@link GameBoard}, which can (or cannot, depending on the type) be
  * occupied by units.
  *
  * @author Jeroen Roosen 

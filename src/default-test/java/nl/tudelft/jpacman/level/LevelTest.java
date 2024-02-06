@@ -6,7 +6,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import nl.tudelft.jpacman.board.Board;
+import nl.tudelft.jpacman.board.GameBoard;
 import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.npc.Ghost;
 
@@ -46,7 +46,7 @@ class LevelTest {
     /**
      * The board for this level.
      */
-    private final Board board = mock(Board.class);
+    private final GameBoard board = mock(GameBoard.class);
 
     /**
      * The collision map.

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nl.tudelft.jpacman.PacmanConfigurationException;
-import nl.tudelft.jpacman.board.Board;
+import nl.tudelft.jpacman.board.GameBoard;
 import nl.tudelft.jpacman.board.BoardFactory;
 import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.npc.Ghost;
@@ -72,7 +72,7 @@ public class MapParser {
 
         makeGrid(map, width, height, grid, ghosts, startPositions);
 
-        Board board = boardCreator.createBoard(grid);
+        GameBoard board = boardCreator.createBoard(grid);
         return levelCreator.createLevel(board, ghosts, startPositions);
     }
 

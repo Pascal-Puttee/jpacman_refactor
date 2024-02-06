@@ -6,7 +6,7 @@ package nl.tudelft.jpacman.board;
  *
  * @author Jeroen Roosen 
  */
-public class Board {
+public class GameBoard {
 
     /**
      * The grid of squares with board[x][y] being the square at column x, row y.
@@ -21,7 +21,7 @@ public class Board {
      *            x, row y.
      */
     @SuppressWarnings("PMD.ArrayIsStoredDirectly")
-    Board(Square[][] grid) {
+    GameBoard(Square[][] grid) {
         assert grid != null;
         this.board = grid;
         assert invariant() : "Initial grid cannot contain null squares";

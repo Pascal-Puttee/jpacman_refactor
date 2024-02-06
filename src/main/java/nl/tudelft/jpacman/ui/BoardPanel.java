@@ -6,7 +6,7 @@ import java.awt.Graphics;
 
 import javax.swing.JPanel;
 
-import nl.tudelft.jpacman.board.Board;
+import nl.tudelft.jpacman.board.GameBoard;
 import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.board.Unit;
 import nl.tudelft.jpacman.game.Game;
@@ -51,7 +51,7 @@ class BoardPanel extends JPanel {
         assert game != null;
         this.game = game;
 
-        Board board = game.getLevel().getBoard();
+        GameBoard board = game.getLevel().getBoard();
 
         int w = board.getWidth() * SQUARE_SIZE;
         int h = board.getHeight() * SQUARE_SIZE;
@@ -77,7 +77,7 @@ class BoardPanel extends JPanel {
      * @param window
      *            The dimensions to scale the rendered board to.
      */
-    private void render(Board board, Graphics graphics, Dimension window) {
+    private void render(GameBoard board, Graphics graphics, Dimension window) {
         int cellW = window.width / board.getWidth();
         int cellH = window.height / board.getHeight();
 

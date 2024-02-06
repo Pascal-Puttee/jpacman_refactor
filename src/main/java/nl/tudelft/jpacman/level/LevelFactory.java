@@ -1,6 +1,6 @@
 package nl.tudelft.jpacman.level;
 
-import nl.tudelft.jpacman.board.Board;
+import nl.tudelft.jpacman.board.GameBoard;
 import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.npc.Ghost;
 import nl.tudelft.jpacman.npc.RandomGhost;
@@ -78,7 +78,7 @@ public class LevelFactory {
      *            A list of squares from which players may start the game.
      * @return A new level for the board.
      */
-    public Level createLevel(Board board, List<Ghost> ghosts, List<Square> startPositions) {
+    public Level createLevel(GameBoard board, List<Ghost> ghosts, List<Square> startPositions) {
 
         // We'll adopt the simple collision map for now.
         CollisionMap collisionMap = new PlayerCollisions(pointCalculator);

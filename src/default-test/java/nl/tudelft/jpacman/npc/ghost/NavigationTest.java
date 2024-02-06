@@ -1,7 +1,7 @@
 package nl.tudelft.jpacman.npc.ghost;
 
 import com.google.common.collect.Lists;
-import nl.tudelft.jpacman.board.Board;
+import nl.tudelft.jpacman.board.GameBoard;
 import nl.tudelft.jpacman.board.BoardFactory;
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.board.Square;
@@ -53,7 +53,7 @@ class NavigationTest {
      */
     @Test
     void testShortestPathEmpty() {
-        Board b = parser.parseMap(Lists.newArrayList(" ")).getBoard();
+        GameBoard b = parser.parseMap(Lists.newArrayList(" ")).getBoard();
         Square s1 = b.squareAt(0, 0);
         Square s2 = b.squareAt(0, 0);
         List<Direction> path = Navigation
@@ -66,7 +66,7 @@ class NavigationTest {
      */
     @Test
     void testNoShortestPath() {
-        Board b = parser
+        GameBoard b = parser
             .parseMap(Lists.newArrayList("#####", "# # #", "#####"))
             .getBoard();
         Square s1 = b.squareAt(1, 1);
@@ -81,7 +81,7 @@ class NavigationTest {
      */
     @Test
     void testNoTraveller() {
-        Board b = parser
+        GameBoard b = parser
             .parseMap(Lists.newArrayList("#####", "# # #", "#####"))
             .getBoard();
         Square s1 = b.squareAt(1, 1);
@@ -95,7 +95,7 @@ class NavigationTest {
      */
     @Test
     void testSimplePath() {
-        Board b = parser.parseMap(Lists.newArrayList("####", "#  #", "####"))
+        GameBoard b = parser.parseMap(Lists.newArrayList("####", "#  #", "####"))
             .getBoard();
         Square s1 = b.squareAt(1, 1);
         Square s2 = b.squareAt(2, 1);
@@ -109,7 +109,7 @@ class NavigationTest {
      */
     @Test
     void testCornerPath() {
-        Board b = parser.parseMap(
+        GameBoard b = parser.parseMap(
             Lists.newArrayList("####", "#  #", "## #", "####")).getBoard();
         Square s1 = b.squareAt(1, 1);
         Square s2 = b.squareAt(2, 2);
@@ -123,7 +123,7 @@ class NavigationTest {
      */
     @Test
     void testNearestUnit() {
-        Board b = parser
+        GameBoard b = parser
             .parseMap(Lists.newArrayList("#####", "# ..#", "#####"))
             .getBoard();
         Square s1 = b.squareAt(1, 1);
@@ -137,7 +137,7 @@ class NavigationTest {
      */
     @Test
     void testNoNearestUnit() {
-        Board b = parser.parseMap(Lists.newArrayList(" ")).getBoard();
+        GameBoard b = parser.parseMap(Lists.newArrayList(" ")).getBoard();
         Square s1 = b.squareAt(0, 0);
         Unit unit = Navigation.findNearest(Pellet.class, s1);
         assertThat(unit).isNull();
@@ -152,7 +152,7 @@ class NavigationTest {
     @Test
     void testFullSizedLevel() throws IOException {
         try (InputStream i = getClass().getResourceAsStream("/board.txt")) {
-            Board b = parser.parseMap(i).getBoard();
+            GameBoard b = parser.parseMap(i).getBoard();
             Square s1 = b.squareAt(1, 1);
             Unit unit = Navigation.findNearest(Ghost.class, s1);
             assertThat(unit).isNotNull();

@@ -3,7 +3,7 @@ package nl.tudelft.jpacman.board;
 import nl.tudelft.jpacman.sprite.PacManSprites;
 
 /**
- * A factory that creates {@link Board} objects from 2-dimensional arrays of
+ * A factory that creates {@link GameBoard} objects from 2-dimensional arrays of
  * {@link Square}s.
  *
  * @author Jeroen Roosen 
@@ -34,10 +34,10 @@ public class BoardFactory {
      *            the square at position x,y.
      * @return A new board, wrapping a grid of connected cells.
      */
-    public Board createBoard(Square[][] grid) {
+    public GameBoard createBoard(Square[][] grid) {
         assert grid != null;
 
-        Board board = new Board(grid);
+        GameBoard board = new GameBoard(grid);
 
         int width = board.getWidth();
         int height = board.getHeight();

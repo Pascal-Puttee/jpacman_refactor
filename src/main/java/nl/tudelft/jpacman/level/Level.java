@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import nl.tudelft.jpacman.board.Board;
+import nl.tudelft.jpacman.board.GameBoard;
 import nl.tudelft.jpacman.board.Direction;
 import nl.tudelft.jpacman.board.Square;
 import nl.tudelft.jpacman.board.Unit;
@@ -29,7 +29,7 @@ public class Level {
     /**
      * The board of this level.
      */
-    private final Board board;
+    private final GameBoard board;
 
     /**
      * The lock that ensures moves are executed sequential.
@@ -92,7 +92,7 @@ public class Level {
      * @param collisionMap
      *            The collection of collisions that should be handled.
      */
-    public Level(Board board, List<Ghost> ghosts, List<Square> startPositions,
+    public Level(GameBoard board, List<Ghost> ghosts, List<Square> startPositions,
                  CollisionMap collisionMap) {
         assert board != null;
         assert ghosts != null;
@@ -159,7 +159,7 @@ public class Level {
      *
      * @return The board of this level.
      */
-    public Board getBoard() {
+    public GameBoard getBoard() {
         return board;
     }
 
@@ -312,7 +312,7 @@ public class Level {
      * @return The amount of pellets remaining on the board.
      */
     public int remainingPellets() {
-        Board board = getBoard();
+        
         int pellets = 0;
         for (int x = 0; x < board.getWidth(); x++) {
             for (int y = 0; y < board.getHeight(); y++) {
