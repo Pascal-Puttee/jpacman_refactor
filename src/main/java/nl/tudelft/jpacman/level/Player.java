@@ -136,7 +136,6 @@ public class Player extends Unit {
     }
 
     public void removeLife() {
-        
         this.lives--;
     }
 }
