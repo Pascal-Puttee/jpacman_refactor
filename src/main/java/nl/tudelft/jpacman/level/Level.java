@@ -342,7 +342,9 @@ public class Level {
                 }
             }
         }
-        assert pellets >= 0;
+        if (pellets < 0) {
+            throw new IllegalStateException("The number of pellets cannot be negative.");
+        }
         return pellets;
     }
 
