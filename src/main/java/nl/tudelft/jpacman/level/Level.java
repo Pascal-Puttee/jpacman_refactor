@@ -275,6 +275,8 @@ public class Level {
                 for (LevelObserver observer : observers) {
                     observer.lifeLost(player);
                 }
+
+                resetPlayerPosition(player);
             }
         }
        
@@ -377,4 +379,8 @@ public class Level {
         }
     }
 
+    public void resetPlayerPosition(Player player) {
+        Square startSquare = startSquares.get(players.indexOf(player));
+        player.occupy(startSquare);
+    }
 }
