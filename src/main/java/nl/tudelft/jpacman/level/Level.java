@@ -78,7 +78,7 @@ public class Level {
      */
     private final Set<LevelObserver> observers;
 
-    private ArrayList<Square> startingGhostSquares = new ArrayList<>();;
+    private ArrayList<Square> startingGhostSquares = new ArrayList<>();
 
     /**
      * Creates a new level for the board.
@@ -94,9 +94,15 @@ public class Level {
      */
     public Level(GameBoard board, List<Ghost> ghosts, List<Square> startPositions,
                  CollisionMap collisionMap) {
-        assert board != null;
-        assert ghosts != null;
-        assert startPositions != null;
+        if (board == null) {
+            throw new NullPointerException("Board object cannot be null");
+        }
+        if (ghosts == null) {
+            throw new NullPointerException("Ghosts list cannot be null or empty.");
+        }
+        if (startPositions == null) {
+            throw new NullPointerException("Start positions list cannot be null.");
+        }
 
         this.board = board;
         this.inProgress = false;
@@ -141,7 +147,9 @@ public class Level {
      *            The player to register.
      */
     public void registerPlayer(Player player) {
-        assert player != null;
+        if (player == null) {
+            throw new NullPointerException("Player object cannot be null");
+        }
         assert !startSquares.isEmpty();
 
         if (players.contains(player)) {
