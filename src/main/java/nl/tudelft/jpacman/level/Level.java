@@ -150,7 +150,9 @@ public class Level {
         if (player == null) {
             throw new NullPointerException("Player object cannot be null");
         }
-        assert !startSquares.isEmpty();
+        if (startSquares.isEmpty()) {
+            throw new IllegalStateException("Start squares list must not be empty");
+        }
 
         if (players.contains(player)) {
             return;
