@@ -70,14 +70,18 @@ public class ScorePanel extends JPanel {
     protected void refresh() {
         for (Map.Entry<Player, JLabel> entry : scoreLabels.entrySet()) {
             Player player = entry.getKey();
-            String score = "";
-            if (!player.isAlive()) {
-                score = "You died. ";
-            }
-            score += scoreFormatter.format(player);
-            score += String.format("    Lives : %3d", player.getLives());
-            entry.getValue().setText(score);
+            entry.getValue().setText(getScoreString(player));
         }
+    }
+
+    private String getScoreString(Player player) {
+        String score = "";
+        if (!player.isAlive()) {
+            score = "You died. ";
+        }
+        score += scoreFormatter.format(player);
+        score += String.format("    Lives : %3d", player.getLives());
+        return score;
     }
 
     /**
