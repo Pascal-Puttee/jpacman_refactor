@@ -258,7 +258,9 @@ public class Level {
     private void stopNPCs() {
         for (Entry<Ghost, ScheduledExecutorService> entry : npcs.entrySet()) {
             ScheduledExecutorService schedule = entry.getValue();
-            assert schedule != null;
+            if (schedule == null) {
+                throw new NullPointerException("Schedule cannot  be null");
+            }
             schedule.shutdownNow();
         }
     }
