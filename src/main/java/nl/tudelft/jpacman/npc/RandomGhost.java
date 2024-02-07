@@ -11,7 +11,7 @@ import nl.tudelft.jpacman.sprite.Sprite;
      *
      * @author Jeroen Roosen
      */
-    public final class RandomGhost extends Ghost {
+    public class RandomGhost extends Ghost {
 
         /**
          * The suggested delay between moves.

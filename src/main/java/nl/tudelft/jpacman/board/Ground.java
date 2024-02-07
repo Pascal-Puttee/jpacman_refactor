@@ -7,7 +7,7 @@ import nl.tudelft.jpacman.sprite.Sprite;
      *
      * @author Jeroen Roosen
      */
-    final class Ground extends Square {
+    public class Ground extends Square {
 
         /**
          * The background for this square.
